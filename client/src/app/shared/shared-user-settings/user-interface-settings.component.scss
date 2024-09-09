@@ -1,0 +1,16 @@
+@use '_variables' as *;
+@use '_mixins' as *;
+
+input[type=submit] {
+  display: block;
+  margin-top: 15px;
+
+  @include peertube-button;
+  @include orange-button;
+}
+
+.peertube-select-container {
+  margin-bottom: 30px;
+
+  @include peertube-select-container(340px);
+}

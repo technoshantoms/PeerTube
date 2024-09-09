@@ -1,0 +1,30 @@
+<my-videos-list
+  #videosList
+
+  *ngIf="videoChannel"
+
+  [title]="title"
+  displayTitle="false"
+
+  [getVideosObservableFunction]="getVideosObservableFunction"
+  [getSyndicationItemsFunction]="getSyndicationItemsFunction"
+
+  [defaultSort]="defaultSort"
+
+  displayFilters="true"
+  displayModerationBlock="true"
+
+  [displayOptions]="displayOptions"
+  [displayAsRow]="displayAsRow()"
+
+  hideScopeFilter="true"
+
+  loadUserVideoPreferences="true"
+
+  highlightLives="true"
+
+  [disabled]="disabled"
+
+  (videosLoaded)="onVideosLoaded($event)"
+>
+</my-videos-list>

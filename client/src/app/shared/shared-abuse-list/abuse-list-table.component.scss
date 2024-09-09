@@ -1,0 +1,26 @@
+@use '_variables' as *;
+@use '_mixins' as *;
+
+.comment-flagged-account,
+.account-flagged-handle,
+.video-owner {
+  font-size: 11px;
+  color: var(--greyForegroundColor);
+}
+
+.abuse-messages {
+  my-global-icon {
+    width: 22px;
+    position: relative;
+    top: -2px;
+
+    @include margin-left(3px);
+  }
+}
+
+.table-video-text my-global-icon,
+my-video-cell my-global-icon {
+  width: 15px;
+  position: relative;
+  top: -2px;
+}

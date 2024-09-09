@@ -1,0 +1,29 @@
+@use '_variables' as *;
+@use '_mixins' as *;
+
+p-autocomplete {
+  display: block;
+}
+
+.form-group {
+  margin: 20px 0;
+}
+
+.pt-alert-primary {
+  margin: 1rem 0;
+}
+
+.pt-badge {
+  font-size: 13px;
+
+  @include margin-right(5px);
+}
+
+.journal-session {
+  margin-bottom: 5px;
+
+  span:not(.pt-badge, :last-child)::after {
+    margin: 3px;
+    content: '•';
+  }
+}

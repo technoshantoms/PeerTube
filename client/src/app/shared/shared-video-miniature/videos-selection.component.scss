@@ -1,0 +1,59 @@
+@use '_variables' as *;
+@use '_mixins' as *;
+
+.action-selection-mode {
+  display: flex;
+  justify-content: flex-end;
+  flex-grow: 1;
+}
+
+.action-selection-mode-child {
+  position: fixed;
+  display: flex;
+
+  .action-button {
+    display: block;
+
+    @include margin-left(55px);
+  }
+}
+
+.action-button-cancel-selection {
+  @include peertube-button;
+  @include grey-button;
+}
+
+.video {
+  @include row-blocks($column-responsive: false);
+
+  &:first-child {
+    margin-top: 47px;
+  }
+
+  .checkbox-container {
+    display: flex;
+    align-items: center;
+
+    @include margin-right(20px);
+    @include margin-left(12px);
+  }
+
+  my-video-miniature {
+    flex-grow: 1;
+    max-width: 100%;
+  }
+}
+
+@include on-mobile-main-col {
+  .video {
+    flex-wrap: wrap;
+  }
+
+  .checkbox-container {
+    display: none;
+  }
+
+  .action-selection-mode {
+    display: none; // disable for small screens
+  }
+}

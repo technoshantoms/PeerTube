@@ -1,0 +1,22 @@
+@use '_variables' as *;
+@use '_mixins' as *;
+
+.publish-button {
+  @include button-with-icon(21px, 3px, -1px);
+  @include margin-right(25px);
+
+  @media screen and (max-width: $mobile-view) {
+    padding-right: 10px;
+    padding-left: 10px;
+
+    @include margin-right(10px);
+
+    .icon.icon-upload {
+      @include margin-right(0);
+    }
+
+    .publish-button-label {
+      display: none;
+    }
+  }
+}

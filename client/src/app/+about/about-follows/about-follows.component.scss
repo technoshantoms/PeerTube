@@ -1,0 +1,13 @@
+@use '_variables' as *;
+@use '_mixins' as *;
+
+a {
+  display: block;
+  width: fit-content;
+  margin-top: 3px;
+}
+
+.no-results {
+  justify-content: flex-start;
+  align-items: flex-start;
+}

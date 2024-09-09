@@ -1,0 +1,36 @@
+@use '_variables' as *;
+@use '_mixins' as *;
+
+my-embed {
+  display: block;
+  max-width: 500px;
+  width: 50%;
+}
+
+.pt-badge {
+  @include margin-right(5px);
+}
+
+.video-info > div {
+  display: flex;
+
+  my-global-icon {
+    width: 16px;
+    position: relative;
+    top: -2px;
+
+    @include margin-left(3px);
+  }
+}
+
+.loading {
+  opacity: 0.5;
+}
+
+.right-form {
+  display: flex;
+
+  > *:not(:last-child) {
+    @include margin-right(10px);
+  }
+}

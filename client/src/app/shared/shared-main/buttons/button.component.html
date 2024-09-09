@@ -1,0 +1,16 @@
+<button *ngIf="!ptRouterLink" type="button" class="action-button" [ngClass]="classes" [ngbTooltip]="title">
+  <ng-container *ngTemplateOutlet="content"></ng-container>
+</button>
+
+<a *ngIf="ptRouterLink" class="action-button" [ngClass]="classes" [ngbTooltip]="title" [routerLink]="ptRouterLink">
+  <ng-container *ngTemplateOutlet="content"></ng-container>
+</a>
+
+<ng-template #content>
+  <my-loader size="sm" [ngClass]="{ displayed: loading }" [loading]="loading"></my-loader>
+  <my-global-icon *ngIf="icon && !loading" [iconName]="icon"></my-global-icon>
+
+  <span *ngIf="label" class="button-label">{{ label }}</span>
+
+  <ng-content></ng-content>
+</ng-template>

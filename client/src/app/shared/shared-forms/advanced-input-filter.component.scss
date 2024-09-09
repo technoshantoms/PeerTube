@@ -1,0 +1,49 @@
+@use '_variables' as *;
+@use '_mixins' as *;
+
+.input-group {
+  width: fit-content;
+}
+
+.dropdown-item {
+  font-size: 14px;
+}
+
+input {
+  @include peertube-input-text(250px);
+}
+
+.input-group-text {
+  background-color: transparent;
+}
+
+.form-control-clear my-global-icon {
+  display: block;
+
+  ::ng-deep svg {
+    vertical-align: inherit;
+  }
+}
+
+my-global-icon {
+  $size: 19px;
+  $margin: 2px;
+
+  opacity: 1;
+  width: $size;
+  height: $size;
+
+  @include margin-right($margin);
+
+  &.no-visible {
+    width: 0;
+    height: 0;
+
+    @include margin-right($size + $margin);
+  }
+}
+
+div[role=menu] {
+  max-height: 50vh;
+  overflow: auto;
+}

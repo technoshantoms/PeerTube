@@ -1,0 +1,125 @@
+@use '_variables' as *;
+@use '_mixins' as *;
+@use '_miniature' as *;
+
+.miniature {
+  display: inline-block;
+  width: 100%;
+
+  &.no-videos:not(.to-manage) {
+    a {
+      cursor: default !important;
+    }
+  }
+
+  &.to-manage,
+  &.no-videos {
+    .play-overlay {
+      display: none;
+    }
+  }
+}
+
+.miniature-thumbnail {
+  @include miniature-thumbnail;
+
+  .miniature-playlist-info-overlay {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    padding: 0 10px;
+    font-size: 14px;
+    font-weight: $font-semibold;
+
+    @include static-thumbnail-overlay;
+
+    & {
+      display: flex;
+      align-items: center;
+    }
+  }
+}
+
+.miniature-info {
+
+  .miniature-name {
+    @include miniature-name;
+  }
+
+  .by {
+    display: block;
+    color: pvar(--greyForegroundColor);
+
+    @include disable-default-a-behaviour;
+  }
+
+  .privacy-date {
+    margin-top: 5px;
+    font-size: 14px;
+
+    .privacy {
+      font-weight: $font-semibold;
+
+      &::after {
+        content: '-';
+        margin: 0 3px;
+      }
+    }
+  }
+
+  .description {
+    margin-top: 10px;
+    color: pvar(--greyForegroundColor);
+
+    @include peertube-word-wrap;
+  }
+}
+
+.miniature:not(.display-as-row) {
+
+  .miniature-name {
+    margin-top: 10px;
+    margin-bottom: 5px;
+  }
+
+  .miniature-thumbnail {
+    margin-top: 10px;
+    margin-bottom: 5px;
+
+    @include block-ratio($selector: '::ng-deep a');
+  }
+}
+
+.miniature.display-as-row {
+  --rowThumbnailWidth: #{$video-thumbnail-width};
+  --rowThumbnailHeight: #{$video-thumbnail-height};
+
+  display: flex;
+
+  .miniature-name {
+    font-size: $video-miniature-row-name-font-size;
+  }
+
+  .miniature-thumbnail {
+    min-width: var(--rowThumbnailWidth);
+    max-width: var(--rowThumbnailWidth);
+    height: var(--rowThumbnailHeight);
+
+    @include margin-right(1rem);
+  }
+}
+
+@include on-small-main-col {
+  .miniature.display-as-row {
+    --rowThumbnailWidth: #{$video-thumbnail-medium-width};
+    --rowThumbnailHeight: #{$video-thumbnail-medium-height};
+  }
+}
+
+@include on-mobile-main-col {
+  .miniature.display-as-row {
+    --rowThumbnailWidth: #{$video-thumbnail-small-width};
+    --rowThumbnailHeight: #{$video-thumbnail-small-height};
+  }
+}

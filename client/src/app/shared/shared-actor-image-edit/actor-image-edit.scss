@@ -1,0 +1,23 @@
+@use '_variables' as *;
+@use '_mixins' as *;
+
+.dropdown-file {
+  @include peertube-file;
+}
+
+.actor-img-edit-button {
+  @include peertube-button-file(31px);
+  @include button-with-icon(19px, 0);
+  @include orange-button;
+
+  & {
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+  }
+
+  input {
+    width: 30px;
+    height: 30px;
+  }
+}

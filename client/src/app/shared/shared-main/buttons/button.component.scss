@@ -1,0 +1,64 @@
+@use '_variables' as *;
+@use '_mixins' as *;
+
+@mixin responsive-label {
+  .action-button {
+    padding: 0 13px;
+  }
+
+  .button-label {
+    display: none;
+  }
+
+  my-global-icon {
+    margin: 0 !important;
+  }
+}
+
+:host {
+  display: inline-block;
+}
+
+a[class$=-button],
+span[class$=-button] {
+  > span {
+    @include margin-left(5px);
+  }
+}
+
+.action-button {
+  width: 100%; // useful for ellipsis, allow to define a max-width on host component
+
+  my-loader.displayed {
+    display: inline-flex;
+    vertical-align: middle;
+    margin-top: -1px;
+
+    @include margin-right(3px);
+  }
+
+  &.has-icon {
+    @include button-with-icon(21px);
+  }
+
+  &.icon-only my-global-icon {
+    margin: 0 !important;
+  }
+}
+
+.button-label {
+  @include ellipsis;
+}
+
+// In a table, try to minimize the space taken by this button
+@media screen and (max-width: 1400px) {
+  :host-context(td) {
+    @include responsive-label;
+  }
+}
+
+@media screen and (max-width: $small-view) {
+  .responsive-label {
+    @include responsive-label;
+  }
+}
